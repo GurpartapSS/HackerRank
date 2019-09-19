@@ -4,21 +4,21 @@ from sklearn.linear_model import LinearRegression
 from mpl_toolkits import mplot3d
 import numpy as np
 import matplotlib.pyplot as plt
+
+
 fig = plt.figure()
 #ax = plt.axes(projection='3d')
 x = []
 y = []
-#z = []
 
 file = open(r"trainingdata.txt","r")
 text = file.readlines()
-#file.close()
+file.close()
 
 for line in text:
 	x.append(float(line.split(',')[0]))
 	y.append(float(line.split(',')[1]))
-	#z.append(np.ceil(float(line.split(' ')[2].rstrip())))
-plt.scatter(x, y, color='red')
+#plt.scatter(x, y, color='red')
 #plt.show()
 t1_n = []
 t2_n = []
@@ -27,4 +27,16 @@ t2_n = []
 
 lin_reg = LinearRegression()
 lin_reg.fit(t1_n,t2_n)
-lin_reg.predict([[1.5]])
+print(float(lin_reg.predict([[float(input())]]))
+
+
+############# otherwise if u have seen the data accurately theres also this 
+
+f = float(input())
+if f > 4:
+	print(8)
+else:
+	print(f*2)
+
+##yes thats the answer!
+
