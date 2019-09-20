@@ -10,8 +10,8 @@ explore = []
 node_visited = []
 final_route = None
 
-PossibleMoves = [[-1, 0], [0, -1], [0, 1], [1, 0]]
-
+PossibleMoves = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+SMove = ["UP","Down","LEFT","RIGHT"]
 explore.append([pac_x, pac_y, []])
 
 while len(explore) > 0:
