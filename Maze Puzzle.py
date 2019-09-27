@@ -16,3 +16,4 @@ if f==0:
         if C[i]=='-' or C[i]=='b':
             print(strs[i])
             break
+test
