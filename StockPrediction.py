@@ -3,8 +3,8 @@ import math
 def printTransactions(m, k, d, name, owned, prices):
     slope_list=[]
     a = []
+    a.append(x)
     for x in range(len(prices)):
-        a.append(x)
     a = np.array(a)
     for i in range(k):
         x=a
