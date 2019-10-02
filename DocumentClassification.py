@@ -3,8 +3,6 @@ import scipy as sc
 from scipy.stats import sem, t,mode
 from scipy import mean
 num = int(input())
-
-
 l = list(map(int,input().split()))
 
 sum = 0
