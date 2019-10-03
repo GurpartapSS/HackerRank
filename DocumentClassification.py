@@ -42,3 +42,4 @@ clf = MultinomialNB().fit(X_train_tfidf, y)
 #text_clf = Pipeline([('vect', CountVectorizer()),('tfidf', TfidfVectorizer()),('clf', MultinomialNB())])
 test = vectorizer.fit_transform(X_train_tfidf[0])
 predicted = clf.predict(test)
+>>>>>>> 9f361c6767a7aebdec4e8b6828907d6a32a373b4
