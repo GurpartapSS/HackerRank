@@ -1,51 +1,44 @@
-import numpy as np
-import scipy as sc
-from scipy.stats import sem, t,mode
-from scipy import mean
-num = int(input())
-l = list(map(int,input().split()))
-
 with open("trainingdata_docs.txt","r") as file:
     f = file.readlines()
 file.close()
+import pandas as pd
 
 num = int(f[0].strip())
 lol = []
 for power in range(1,num):
     lol.append(f[power].strip())
+    
+y=[]
+ada = []
+for i in range(len(lol)):
+    y.append(lol[i][0])
+    ada.append(lol[i][1:])
+x = [balls.strip() for balls in ada]
+x_token = [s.split(" ") for s in x]
+len(x) == len(y)
 
-sum = 0
-for i in l:
-    sum = sum+i
+#import nltk
+#from nltk.corpus import stopwords
+#stop_words = set(stopwords.words('english'));
 
-means = sum/num
-print(means)
+from sklearn.feature_extraction.text import TfidfVectorizer
+vectorizer = TfidfVectorizer()
+#X = vectorizer.fit_transform(x)
+from sklearn.feature_extraction.text import CountVectorizer
+count_vect = CountVectorizer()
+X_train_counts = count_vect.fit_transform(x)
+X_train_counts.shape
 
-if num%2 == 0:
-    av = l[int(num/2)]
-    ar = l[int((num/2)+1)]
-    median = (av + ar)/2
-else:
-    median = l[np.floor(num/2)]
+from sklearn.feature_extraction.text import TfidfTransformer
+tfidf_transformer = TfidfTransformer()
+X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
+X_train_tfidf.shape
 
-print(np.median(l))
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import MultinomialNB
+clf = MultinomialNB().fit(X_train_tfidf, y)
 
-mode = mode(l)
-print(int(mode[0]))
-
-print(round(np.std(l),1))
-
-
-confidence = 0.95
-n = len(l)
-m = mean(l)
-std_err = sem(l)
-h = std_err * t.ppf((1 + confidence) / 2, n - 1)
-start = m - h
-star = round(start, 1)
-end = m + h
-en = round(end, 1)
-l=[]
-l.append(star, en)
-res = (" ".join(l)) 
-print(res)
+#from sklearn.pipeline import Pipeline
+#text_clf = Pipeline([('vect', CountVectorizer()),('tfidf', TfidfVectorizer()),('clf', MultinomialNB())])
+test = vectorizer.fit_transform(X_train_tfidf[0])
+predicted = clf.predict(test)
