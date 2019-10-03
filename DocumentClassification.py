@@ -5,6 +5,15 @@ from scipy import mean
 num = int(input())
 l = list(map(int,input().split()))
 
+with open("trainingdata_docs.txt","r") as file:
+    f = file.readlines()
+file.close()
+
+num = int(f[0].strip())
+lol = []
+for power in range(1,num):
+    lol.append(f[power].strip())
+
 sum = 0
 for i in l:
     sum = sum+i
