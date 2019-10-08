@@ -1,0 +1,24 @@
+variance = [mean((y-mean(x))**2) for y in x]
+sd = sqrt(variance)
+
+
+given distribution of points (x,y)
+
+y = mx + c
+
+karl persons coeff = num/den
+
+num = sum{(x-mean(x))*(y-mean(y))}
+den =sqrt(sum{(x-mean(x)**2)}*sum{(y-mean(y)**2)})
+
+m = num/den
+
+num = sum{(x-mean(x))*(y-mean(y))}
+den = sum{(x-mean(x)**2)}
+
+c = mean(y) - m*mean(x)
+
+https://www.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data/more-on-regression/v/regression-line-example
+
+m = mean(x*y)-mean(x)*mean(y)/(mean(x)**2-mean(x**2))
+
