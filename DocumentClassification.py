@@ -59,6 +59,7 @@ accLR = accuracy_score(predLR,y_test)
 accLC = accuracy_score(predLC,y_test)
 print(accM,accS,accLR,accLC)
 
+###added test
 t = ["my computer is not working"]
 T = vectorizer.transform(t)
 T.shape
