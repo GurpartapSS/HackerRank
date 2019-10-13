@@ -27,7 +27,6 @@ def count(string,lis):
         score = score+s
     return(score)
 
-
 if __name__ == '__main__':
     s = input()
     minion_game(s)
