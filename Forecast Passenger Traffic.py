@@ -1,10 +1,13 @@
 from statsmodels.tsa.ar_model import AR
-lol=[]
+from statsmodels.tsa.arima_model import ARMA
+#model = ARMA(lol, order=(0, 5))
+
+data=[]
 num = int(input())
 for i in range(num):
-    lol.append(int(input().strip().split()[1]))
+    data.append(int(input().strip().split()[1]))
 
-model = AR(lol)
+model = AR(data)
 model_fit = model.fit()
 t = model_fit.predict()[:12]
 f = []
